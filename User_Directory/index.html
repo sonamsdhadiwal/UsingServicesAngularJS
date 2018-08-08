@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <title>User Directory</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="lib/angular/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+    
+<body>
+   <div class="container">
+       <h2>User Directory</h2>
+        <input class="form-control" id="myInput" type="text" placeholder="Type to search for a user ..." ng-model="query">
+    </div>
+    <hr size="30">
+    <div id="div1" ng-controller="search1Controller">
+        <div class="panel-group" ng-repeat="items in displayData | filter : query | limitTo: 4">
+            <div class="panel panel-default" ng-style = 
+                 "{{items.gender == 'F' }}? {'border-color':'pink'} : {'border-color' : 'skyblue'}">
+                <div class="panel-heading">{{items.name}}</div>
+                <div class="panel-body">City: {{items.city}}</div>
+                <div class="panel-body">email: {{items.email}}</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+    
+</html>
